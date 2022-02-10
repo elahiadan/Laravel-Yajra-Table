@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatatablesController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users', [DatatablesController::class, 'anyData'])->name('datatables.data');
+Route::get('user', [DatatablesController::class, 'anyData'])->name('datatables.data');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/users', [UsersController::class,'index'])->name('users.index');
