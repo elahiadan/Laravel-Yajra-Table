@@ -12,6 +12,7 @@
 
 <body>
     <div class="container">
+    <h1>DataTable By AJAX</h1>
         <table class="table table-bordered" id="users-table">
             <thead>
                 <tr>
