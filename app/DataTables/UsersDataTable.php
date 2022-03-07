@@ -21,7 +21,7 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', '<a href="{{$name}}">hello</a>');
+            ->addColumn('action', '<button class="btn btn-info" onclick="hello({{$id}})">Edit</button><button class="btn btn-danger" onclick="hello({{$id}})">Delete</button>');
     }
 
     /**
@@ -48,10 +48,17 @@ class UsersDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
-                    ->buttons(
-                        Button::make('cvs'),
-                        Button::make('excel')
-                    );
+                    // ->buttons(
+                    //     Button::make('cvs'),
+                    //     Button::make('excel')
+                    // );
+                    // return $this->builder()
+                    // ->columns($this->getColumns())
+                    ->parameters([
+                        'dom'          => 'Bfrtip',
+                        'buttons'      => ['export', 'print', 'reset', 'reload'],
+                    ]);
+
     }
 
     /**
