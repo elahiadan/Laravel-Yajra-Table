@@ -19,11 +19,12 @@ use App\Http\Controllers\UsersController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('user', [DatatablesController::class, 'anyData'])->name('datatables.data');
+Route::get('datatable-by-ajax', [DatatablesController::class, 'datatableByAjax'])->name('datatables.normal');
+Route::get('get-user-data', [DatatablesController::class, 'getData'])->name('datatables.data');
 // DataTable By AJAX End
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // DataTable By DataTableFunction
-Route::get('/users', [UsersController::class,'index'])->name('users.index');
+Route::get('/datatable-by-advanced', [UsersController::class,'index'])->name('datatables.advanced');

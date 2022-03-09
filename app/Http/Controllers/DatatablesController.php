@@ -8,7 +8,11 @@ use App\Models\User;
 
 class DatatablesController extends Controller
 {
-    public function anyData()
+
+    public function datatableByAjax(){
+        return view('normal-datatable');
+    }
+    public function getData()
     {
         return Datatables::of(User::query())
 
